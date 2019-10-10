@@ -6,10 +6,6 @@ RUN apk update && \
   apk upgrade && \
   apk add --no-cache \
     curl \
-    bash \
-    git \
-    openssh-client \
-    jq
 
 COPY --from=kaniko /kaniko /kaniko
 
