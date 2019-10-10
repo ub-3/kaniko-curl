@@ -1,10 +1,8 @@
-FROM gcr.io/kaniko-project/executor:debug as kaniko
-
 FROM alpine:latest
 
 RUN apk update && apk upgrade && apk add --no-cache curl
 
-COPY --from=kaniko /kaniko /kaniko
+COPY --from=gcr.io/kaniko-project/executor:debug /kaniko /kaniko
 
 ENV PATH=/kaniko:$PATH
 ENV DOCKER_CONFIG='/kaniko/.docker'
